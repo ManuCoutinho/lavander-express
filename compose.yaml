@@ -1,0 +1,8 @@
+services:
+  site:
+    build: .
+    image: lavander-express:local
+    container_name: lavander-express
+    ports:
+      - "8080:80"
+    restart: unless-stopped

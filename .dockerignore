@@ -1,0 +1,9 @@
+.git
+.github
+.gitignore
+.vscode
+.dist
+node_modules
+src
+compose.yaml
+README.md

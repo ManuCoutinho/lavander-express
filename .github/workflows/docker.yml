@@ -1,0 +1,103 @@
+name: Build, test and publish Docker image
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,format=short
+            type=ref,event=pr
+
+      - name: Build image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: lavander-express:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Start container
+        run: docker run -d --name lavander-ci -p 8080:80 lavander-express:ci
+
+      - name: Wait for healthcheck
+        run: |
+          for i in $(seq 1 20); do
+            status=$(docker inspect -f '{{.State.Health.Status}}' lavander-ci)
+            echo "tentativa $i: $status"
+            [ "$status" = "healthy" ] && exit 0
+            sleep 2
+          done
+          echo "container nao ficou saudavel"
+          docker logs lavander-ci
+          exit 1
+
+      - name: Smoke test
+        run: |
+          curl -fsS http://localhost:8080/health | grep -q "ok"
+          curl -fsS http://localhost:8080/ | grep -q "Lavander"
+          curl -fsS -o /dev/null -w "styles.css -> %{http_code}\n" http://localhost:8080/styles.css
+          curl -fsS -o /dev/null -w "main.js    -> %{http_code}\n" http://localhost:8080/main.js
+          echo "container respondendo na porta 8080"
+
+      - name: Container logs
+        if: always()
+        run: docker logs lavander-ci
+
+      - name: Stop container
+        if: always()
+        run: docker rm -f lavander-ci
+
+      - name: Log in to GHCR
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push image
+        if: github.event_name != 'pull_request'
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Resumo
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "### Imagem publicada :whale:" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.meta.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "Rode localmente: \`docker run -p 8080:80 ${{ env.IMAGE_NAME }}:latest\`" >> $GITHUB_STEP_SUMMARY
