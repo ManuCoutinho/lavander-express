@@ -1,12 +1,8 @@
-/* =========================================================
-   Lavander Express — interações da landing page (JS vanilla)
-   ========================================================= */
 (function () {
   'use strict';
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- menu mobile ---------- */
   var burger = document.getElementById('burger');
   var nav = document.getElementById('nav');
 
@@ -32,7 +28,6 @@
     });
   }
 
-  /* ---------- sombra do header ao rolar ---------- */
   var header = document.getElementById('header');
   function onScroll() {
     header.classList.toggle('is-scrolled', window.scrollY > 8);
@@ -42,7 +37,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- revelar elementos ao entrar na tela ---------- */
   var revealables = document.querySelectorAll('.reveal');
 
   if (reducedMotion || !('IntersectionObserver' in window)) {
@@ -61,7 +55,6 @@
     revealables.forEach(function (el) { revealObserver.observe(el); });
   }
 
-  /* ---------- contadores do hero ---------- */
   var counters = document.querySelectorAll('[data-count]');
 
   function animateCount(el) {
@@ -91,7 +84,6 @@
     counters.forEach(function (el) { countObserver.observe(el); });
   }
 
-  /* ---------- link ativo conforme a seção visível ---------- */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav__link'));
   var sections = navLinks
     .map(function (link) { return document.querySelector(link.getAttribute('href')); })
@@ -110,7 +102,6 @@
     sections.forEach(function (section) { sectionObserver.observe(section); });
   }
 
-  /* ---------- formulário do cupom (apenas visual, sem backend) ---------- */
   var form = document.getElementById('form');
   var formMsg = document.getElementById('formMsg');
 
@@ -138,7 +129,6 @@
     });
   }
 
-  /* ---------- ano do rodapé ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 })();
