@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lavander Express — Lavanderia Self Service 24h</title>
+    <meta name="description"
+      content="Lavanderia self service em Curitiba. Lave e seque suas roupas em 60 minutos, com máquinas modernas, ambiente climatizado e wi-fi grátis." />
+    <meta name="theme-color" content="#6d4aff" />
+    <link rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧺</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
+
+    <header class="header" id="header">
+      <div class="container header__inner">
+        <a class="brand" href="#inicio">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <rect x="4" y="2.5" width="16" height="19" rx="3" />
+              <circle cx="12" cy="14" r="4.6" />
+              <circle cx="8.5" cy="6.2" r=".9" fill="currentColor" stroke="none" />
+              <circle cx="11.6" cy="6.2" r=".9" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
+          <span class="brand__text">Lavander<strong>Express</strong></span>
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Navegação principal">
+          <a class="nav__link" href="#como-funciona">Como funciona</a>
+          <a class="nav__link" href="#servicos">Serviços</a>
+          <a class="nav__link" href="#precos">Preços</a>
+          <a class="nav__link" href="#unidades">Unidades</a>
+          <a class="btn btn--primary btn--sm nav__cta" href="#contato">Fale conosco</a>
+        </nav>
+
+        <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="container hero__inner">
+          <div class="hero__content reveal">
+            <span class="pill"><span class="pill__dot"></span> Aberto todos os dias, das 6h às 23h</span>
+            <h1 class="hero__title">Sua roupa lavada e seca em <span class="grad">60 minutos</span>.</h1>
+            <p class="hero__text">
+              Lavanderia self service de verdade: você chega, escolhe a máquina, paga pelo app ou pelo Pix
+              e pronto. Sem fila, sem espera de três dias, sem complicação.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#precos">Ver preços</a>
+              <a class="btn btn--ghost" href="#como-funciona">
+                Como funciona
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+
+            <dl class="stats">
+              <div class="stats__item">
+                <dt>Minutos por ciclo</dt>
+                <dd data-count="60">60</dd>
+              </div>
+              <div class="stats__item">
+                <dt>Máquinas na rede</dt>
+                <dd data-count="24">24</dd>
+              </div>
+              <div class="stats__item">
+                <dt>Clientes por mês</dt>
+                <dd data-count="1200" data-suffix="+">1200+</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero__visual reveal" aria-hidden="true">
+            <div class="machine">
+              <div class="machine__top">
+                <span class="machine__led"></span>
+                <span class="machine__panel"></span>
+              </div>
+              <div class="machine__door">
+                <div class="machine__glass">
+                  <div class="machine__water"></div>
+                  <span class="bubble bubble--1"></span>
+                  <span class="bubble bubble--2"></span>
+                  <span class="bubble bubble--3"></span>
+                  <span class="bubble bubble--4"></span>
+                </div>
+              </div>
+              <div class="machine__foot"></div>
+            </div>
+            <div class="floatcard floatcard--a">
+              <strong>Ciclo rápido</strong>
+              <span>Lavar 30min · Secar 30min</span>
+            </div>
+            <div class="floatcard floatcard--b">
+              <strong>Pix ou cartão</strong>
+              <span>Pagamento na máquina</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="strip">
+        <div class="container strip__inner">
+          <div class="strip__item"><span aria-hidden="true">⚡</span> Autoatendimento em 3 toques</div>
+          <div class="strip__item"><span aria-hidden="true">🛜</span> Wi-Fi grátis e café</div>
+          <div class="strip__item"><span aria-hidden="true">❄️</span> Ambiente climatizado</div>
+          <div class="strip__item"><span aria-hidden="true">🌱</span> Produtos biodegradáveis</div>
+        </div>
+      </section>
+
+      <section class="section" id="como-funciona">
+        <div class="container">
+          <header class="section__head reveal">
+            <span class="eyebrow">Como funciona</span>
+            <h2 class="section__title">Três passos e a roupa está pronta</h2>
+            <p class="section__sub">Nada de cadastro longo ou atendente. Você controla tudo do começo ao fim.</p>
+          </header>
+
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step__num">01</span>
+              <h3>Escolha a máquina</h3>
+              <p>Chegue na unidade e veja no painel quais máquinas estão livres. Cada uma comporta até 12kg de roupa.
+              </p>
+            </li>
+            <li class="step reveal">
+              <span class="step__num">02</span>
+              <h3>Pague e inicie</h3>
+              <p>Pix, débito ou crédito direto no terminal. O ciclo começa na hora e você acompanha o tempo restante no
+                visor.</p>
+            </li>
+            <li class="step reveal">
+              <span class="step__num">03</span>
+              <h3>Retire e siga</h3>
+              <p>Em 60 minutos a roupa sai lavada e seca, pronta para dobrar. Mesas de apoio disponíveis na loja.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="servicos">
+        <div class="container">
+          <header class="section__head reveal">
+            <span class="eyebrow">Serviços</span>
+            <h2 class="section__title">Tudo o que a sua rotina precisa</h2>
+            <p class="section__sub">Do básico do dia a dia às peças que ninguém quer arriscar em casa.</p>
+          </header>
+
+          <div class="cards">
+            <article class="card reveal">
+              <span class="card__icon" aria-hidden="true">🧺</span>
+              <h3>Lavagem self service</h3>
+              <p>Máquinas de 12kg com água aquecida e dosagem automática de sabão e amaciante.</p>
+            </article>
+            <article class="card reveal">
+              <span class="card__icon" aria-hidden="true">🌀</span>
+              <h3>Secagem expressa</h3>
+              <p>Secadoras de alta rotação que entregam a roupa seca e macia em até 30 minutos.</p>
+            </article>
+            <article class="card reveal">
+              <span class="card__icon" aria-hidden="true">🛏️</span>
+              <h3>Itens volumosos</h3>
+              <p>Edredons, cobertores e tapetes em máquinas exclusivas de 18kg, sem peso extra.</p>
+            </article>
+            <article class="card reveal">
+              <span class="card__icon" aria-hidden="true">👕</span>
+              <h3>Lavo pra você</h3>
+              <p>Deixe a sacola na loja pela manhã e retire lavada e dobrada no fim do dia.</p>
+            </article>
+            <article class="card reveal">
+              <span class="card__icon" aria-hidden="true">🚚</span>
+              <h3>Leva e traz</h3>
+              <p>Coleta e entrega em domicílio num raio de 5km da unidade, com agendamento pelo WhatsApp.</p>
+            </article>
+            <article class="card reveal">
+              <span class="card__icon" aria-hidden="true">🧴</span>
+              <h3>Produtos na loja</h3>
+              <p>Sabão, amaciante, tira-manchas e sacos de lavagem à venda no terminal de autoatendimento.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="precos">
+        <div class="container">
+          <header class="section__head reveal">
+            <span class="eyebrow">Preços</span>
+            <h2 class="section__title">Preço fechado, sem surpresa</h2>
+            <p class="section__sub">Você paga por ciclo, não por peça. Pague na máquina ou compre créditos com desconto.
+            </p>
+          </header>
+
+          <div class="plans">
+            <article class="plan reveal">
+              <h3 class="plan__name">Avulso</h3>
+              <p class="plan__price"><span>R$</span>24<small>/ciclo</small></p>
+              <p class="plan__desc">Para quem passa de vez em quando.</p>
+              <ul class="plan__list">
+                <li>Lavagem de até 12kg</li>
+                <li>Sabão e amaciante inclusos</li>
+                <li>Secagem por R$ 18 o ciclo</li>
+                <li>Pagamento por Pix ou cartão</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#contato">Quero testar</a>
+            </article>
+
+            <article class="plan plan--featured reveal">
+              <span class="plan__tag">Mais escolhido</span>
+              <h3 class="plan__name">Combo Express</h3>
+              <p class="plan__price"><span>R$</span>36<small>/ciclo</small></p>
+              <p class="plan__desc">Lavar + secar no mesmo atendimento.</p>
+              <ul class="plan__list">
+                <li>Lavagem e secagem de até 12kg</li>
+                <li>Roupa pronta em 60 minutos</li>
+                <li>Produtos biodegradáveis inclusos</li>
+                <li>Prioridade na fila de máquinas</li>
+              </ul>
+              <a class="btn btn--primary btn--block" href="#contato">Começar agora</a>
+            </article>
+
+            <article class="plan reveal">
+              <h3 class="plan__name">Clube mensal</h3>
+              <p class="plan__price"><span>R$</span>129<small>/mês</small></p>
+              <p class="plan__desc">Para famílias e quem lava toda semana.</p>
+              <ul class="plan__list">
+                <li>5 combos lavar + secar por mês</li>
+                <li>10% off em itens volumosos</li>
+                <li>1 leva e traz incluso</li>
+                <li>Cancele quando quiser</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#contato">Assinar clube</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="depoimentos">
+        <div class="container">
+          <header class="section__head reveal">
+            <span class="eyebrow">Depoimentos</span>
+            <h2 class="section__title">Quem já trocou o tanque pela Express</h2>
+          </header>
+
+          <div class="quotes">
+            <figure class="quote reveal">
+              <blockquote>“Moro sozinha e não tenho máquina. Em uma hora resolvo a roupa da semana inteira enquanto
+                estudo por ali mesmo.”</blockquote>
+              <figcaption><span class="avatar" aria-hidden="true">JS</span> <strong>Júlia
+                  Santos</strong><small>Estudante · Centro</small></figcaption>
+            </figure>
+            <figure class="quote reveal">
+              <blockquote>“Levei três edredons num sábado de manhã. Saí de lá em uma hora e meia com tudo seco. Não tem
+                como voltar atrás.”</blockquote>
+              <figcaption><span class="avatar" aria-hidden="true">RM</span> <strong>Rafael
+                  Moraes</strong><small>Autônomo · Batel</small></figcaption>
+            </figure>
+            <figure class="quote reveal">
+              <blockquote>“Uso o leva e traz toda sexta. Deixo a sacola na portaria e recebo tudo dobrado no fim do
+                dia.”</blockquote>
+              <figcaption><span class="avatar" aria-hidden="true">AC</span> <strong>Ana Carvalho</strong><small>Mãe de
+                  dois · Água Verde</small></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="unidades">
+        <div class="container units">
+          <div class="units__text reveal">
+            <span class="eyebrow">Unidades</span>
+            <h2 class="section__title">Perto de casa, aberto quando você precisa</h2>
+            <p class="section__sub">Três lojas em Curitiba, todas com estacionamento rápido na porta.</p>
+
+            <ul class="units__list">
+              <li>
+                <strong>Centro</strong>
+                <span>Rua das Flores, 120 · 6h às 23h</span>
+              </li>
+              <li>
+                <strong>Água Verde</strong>
+                <span>Av. República Argentina, 980 · 7h às 22h</span>
+              </li>
+              <li>
+                <strong>Batel</strong>
+                <span>Al. Dom Pedro II, 45 · 24 horas</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="units__map reveal" aria-hidden="true">
+            <div class="map">
+              <span class="map__pin map__pin--1"></span>
+              <span class="map__pin map__pin--2"></span>
+              <span class="map__pin map__pin--3"></span>
+              <span class="map__road map__road--h"></span>
+              <span class="map__road map__road--v"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="contato">
+        <div class="container cta__inner reveal">
+          <div class="cta__text">
+            <h2>Traga a sua roupa hoje e saia com ela pronta.</h2>
+            <p>Deixe seu contato e enviamos um cupom de R$ 10 para a primeira lavagem.</p>
+          </div>
+
+          <form class="form" id="form" novalidate>
+            <div class="form__row">
+              <label class="sr-only" for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
+            </div>
+            <div class="form__row">
+              <label class="sr-only" for="email">E-mail</label>
+              <input id="email" name="email" type="email" placeholder="seu@email.com" required />
+            </div>
+            <button class="btn btn--dark btn--block" type="submit">Quero meu cupom</button>
+            <p class="form__msg" id="formMsg" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <span class="brand__text">Lavander<strong>Express</strong></span>
+          <p>Lavanderia self service express. Sua roupa limpa em 60 minutos, todos os dias.</p>
+        </div>
+
+        <nav class="footer__col" aria-label="Links do rodapé">
+          <h4>Navegue</h4>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#precos">Preços</a>
+          <a href="#unidades">Unidades</a>
+        </nav>
+
+        <div class="footer__col">
+          <h4>Contato</h4>
+          <a href="tel:+554130000000">(41) 3000-0000</a>
+          <a href="mailto:oi@lavanderexpress.com.br">oi@lavanderexpress.com.br</a>
+          <a href="#unidades">Rua das Flores, 120 — Curitiba/PR</a>
+        </div>
+      </div>
+
+      <div class="container footer__bottom">
+        <small>© <span id="year">2026</span> Lavander Express. Projeto acadêmico de DevOps — PUC/PR.</small>
+        <a class="totop" href="#inicio" aria-label="Voltar ao topo">↑</a>
+      </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
+
+</html>
